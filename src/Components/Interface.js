@@ -20,6 +20,9 @@ function Interface() {
   const [value, setValue] = React.useState(0);
   const [result, setResult] = React.useState("--");
 
+  const [error, setError] = React.useState(false);
+  const [errorNum, setErrorNum] = React.useState(false);
+
   //fonction de modification de mon chiffre
   const handleChangeValue = (e) => {
     setValue(e.target.value);
@@ -32,16 +35,26 @@ function Interface() {
 
   //fonction de clique sur mon Bouton de conversion vers Chiffre Romain
   const handleCvtRom = () => {
-    setResult(CvtToRom(value));
+    if (value > 3000) {
+      setError(true);
+    } else {
+      setResult(CvtToRom(value));
+      setError(false);
+    }
   };
 
   //fonction de clique sur mon bouton de conversion vers Chiffre numérique
   const handleCvtNum = () => {
-    setValue(CvtToNum(result));
-
-    console.log(value);
+    const invalidChars = /[^IVXLCDM]/;
+    if (invalidChars.test(result.toUpperCase())) {
+      setErrorNum(true);
+    } else {
+      setValue(CvtToNum(result.toUpperCase()));
+      setErrorNum(false);
+    }
   };
 
+  //corps de mon Interface
   return (
     <Box
       component="form"
@@ -60,15 +73,18 @@ function Interface() {
       >
         <Grid item xs={2} sm={2} md={2} lg={2}>
           <TextField
+            error={error}
             id="numberToCvt"
             data-testid="numberToCvt"
             value={value}
             variant="outlined"
             onChange={handleChangeValue}
-            sx={{ color: "white", background: "white", borderRadius: "5px" }}
-            inputProps={{
-              inputMode: "numeric",
+            sx={{
+              color: "white",
+              background: "white",
+              borderRadius: "5px",
             }}
+            helperText={error ? "Entre 0 et 3000" : ""}
           />
         </Grid>
 
@@ -94,12 +110,14 @@ function Interface() {
 
         <Grid item xs={2} sm={2} md={2} lg={2}>
           <TextField
+            error={errorNum}
             id="Rom"
             data-testid="Rom"
             variant="outlined"
             value={result}
             onChange={handleChangeResult}
             sx={{ color: "white", background: "white", borderRadius: "5px" }}
+            helperText={errorNum ? "I - V - X - L - C - D - M" : ""}
           />
         </Grid>
       </Grid>

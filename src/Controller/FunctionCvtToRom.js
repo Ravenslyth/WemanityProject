@@ -2,6 +2,7 @@
 function CvtToRom(nbr) {
   let result = "";
 
+  
   const listRules = [
     { value: 1000, rule: "M" },
     { value: 900, rule: "CM" },

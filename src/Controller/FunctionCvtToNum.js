@@ -3,6 +3,11 @@
 function CvtToNum(rom) {
   let result = 0;
 
+  const invalidChars = /[^IVXLCDM]/;
+  if (invalidChars.test(rom)) {
+    return 0;
+  }
+
   const listRules = [
     { value: 1000, rule: "M" },
     { value: 900, rule: "CM" },
@@ -19,14 +24,25 @@ function CvtToNum(rom) {
     { value: 1, rule: "I" },
   ];
 
-  for (let i = 0; i < rom.length; i++) {
-    let lettreRom = rom[i];
-    for (let y = 1; y < listRules.length; y++) {
-      if (lettreRom === listRules[y].rule) {
-        result = result + listRules[y].value;
+  let i = 0;
+
+  while (i < rom.length) {
+    let currentRule = listRules.find((rule) => rule.rule === rom[i]);
+    if (currentRule) {
+      let nextRule = listRules.find((rule) => rule.rule === rom[i + 1]);
+
+      if (nextRule && currentRule.value < nextRule.value) {
+        result += nextRule.value - currentRule.value;
+        i += 2;
+      } else {
+        result += currentRule.value;
+        i++;
       }
+    } else {
+      return;
     }
   }
+
   return result;
 }
 
