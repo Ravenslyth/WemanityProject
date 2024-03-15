@@ -14,7 +14,7 @@ function Interface() {
   const [value, setValue] = React.useState(0);
   const [result, setResult] = React.useState("--");
 
-  //fonction de modification de mes éléments textes
+  //fonction de modification des éléments textes
   const handleChangeValue = (e) => {
     setValue(e.target.value);
   };
@@ -25,9 +25,7 @@ function Interface() {
       sx={{ "& > :not(style)": { m: 1, width: "100%" } }}
       noValidate
       autoComplete="off"
-    >
-      
-    </Box>
+    ></Box>
   );
 }
 
