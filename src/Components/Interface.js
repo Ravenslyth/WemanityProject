@@ -32,7 +32,7 @@ function Interface() {
 
   //fonction de clique sur mon Bouton de conversion vers Chiffre Romain
   const handleCvtRom = () => {
-    CvtToRom(value);
+    setResult(CvtToRom(value));
   };
 
   //fonction de clique sur mon bouton de conversion vers Chiffre numérique

@@ -12,11 +12,17 @@ function CvtToRom(nbr) {
 
   const listRules = [
     { value: 1000, rule: "M" },
+    { value: 900, rule: "CM" },
     { value: 500, rule: "D" },
+    { value: 400, rule: "CD" },
     { value: 100, rule: "C" },
+    { value: 90, rule: "XC" },
     { value: 50, rule: "L" },
+    { value: 40, rule: "XL" },
     { value: 10, rule: "X" },
+    { value: 9, rule: "IX" },
     { value: 5, rule: "V" },
+    { value: 4, rule: "IV" },
     { value: 1, rule: "I" },
   ];
 
