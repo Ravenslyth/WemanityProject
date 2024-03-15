@@ -13,8 +13,6 @@ import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrow
 import CvtToRom from "../Controller/FunctionCvtToRom";
 import CvtToNum from "../Controller/FunctionCvtToNum";
 
-import "../Vue/Interface.Css";
-
 function Interface() {
   //valeur de départ -- valeur Romaine
   const [value, setValue] = React.useState(0);
