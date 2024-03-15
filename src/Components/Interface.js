@@ -37,7 +37,9 @@ function Interface() {
 
   //fonction de clique sur mon bouton de conversion vers Chiffre numérique
   const handleCvtNum = () => {
-    console.log(result);
+    setValue(CvtToNum(result));
+
+    console.log(value);
   };
 
   return (
