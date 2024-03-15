@@ -6,9 +6,13 @@ test("renders check elements", () => {
 
   const TextFieldCvt = screen.getByTestId("numberToCvt");
   const TextFieldRom = screen.getByTestId("Rom");
+  const BtnCvtNum = screen.getByTestId("btnNum");
+  const BtnCvtRom = screen.getByTestId("btnRom");
 
   expect(TextFieldCvt).toBeInTheDocument();
   expect(TextFieldRom).toBeInTheDocument();
+  expect(BtnCvtNum).toBeInTheDocument();
+  expect(BtnCvtRom).toBeInTheDocument();
 });
 
 test("renders check initial value", () => {
