@@ -7,4 +7,3 @@ test("renders check App exist", () => {
   const interfaceComponent = getByTestId("DOM-component");
   expect(interfaceComponent).toBeInTheDocument();
 });
-

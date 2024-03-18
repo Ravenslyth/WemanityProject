@@ -11,7 +11,7 @@ import { Grid } from "@mui/material";
 import InterFace from "../Components/Interface";
 
 function Content() {
-  const cardComp = ({ letter, definition }) => {
+  /* const cardComp = ({ letter, definition }) => {
     return (
       <React.Fragment>
         <Card
@@ -35,7 +35,7 @@ function Content() {
       </React.Fragment>
     );
   };
-
+ */
   return (
     <div>
       <p
@@ -61,7 +61,7 @@ function Content() {
       </p>
 
       <Grid container spacing={2}>
-        <Grid container spacing={2} direction="column" sx={{ width: "20%" }}>
+        {/* <Grid container spacing={2} direction="column" sx={{ width: "20%" }}>
           <Grid item xs={2} sm={2} md={2} lg={2}>
             {cardComp({ letter: "I", definition: "1" })}
           </Grid>
@@ -83,9 +83,9 @@ function Content() {
           <Grid item xs={2} sm={2} md={2} lg={2}>
             {cardComp({ letter: "M", definition: "1000" })}
           </Grid>
-        </Grid>
+        </Grid> */}
 
-        <Grid item xs={8} sm={8} md={8} lg={8}>
+        <Grid item xs={12} sm={12} md={12} lg={12}>
           <InterFace />
         </Grid>
       </Grid>
