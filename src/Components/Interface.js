@@ -1,5 +1,7 @@
 //Import React components
 import * as React from "react";
+
+//import material library
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { Grid } from "@mui/material";
@@ -18,15 +20,16 @@ function Interface() {
   const [value, setValue] = React.useState(0);
   const [result, setResult] = React.useState("--");
 
+  //Gestion erreur
   const [error, setError] = React.useState(false);
   const [errorNum, setErrorNum] = React.useState(false);
 
-  //fonction de modification de mon chiffre
+  //fonction de modification de mon chiffre départ
   const handleChangeValue = (e) => {
     setValue(e.target.value);
   };
 
-  //fonction de modification de mon chiffre
+  //fonction de modification de mon chiffre romain
   const handleChangeResult = (e) => {
     setResult(e.target.value);
   };
@@ -52,7 +55,6 @@ function Interface() {
     }
   };
 
-  //corps de mon Interface
   return (
     <Box
       component="form"
@@ -60,6 +62,7 @@ function Interface() {
       noValidate
       autoComplete="off"
     >
+      {/* -- corps de mon Interface --*/}
       <Grid
         container
         spacing={2}
@@ -119,6 +122,7 @@ function Interface() {
           />
         </Grid>
       </Grid>
+      {/* -- ----- --*/}
     </Box>
   );
 }

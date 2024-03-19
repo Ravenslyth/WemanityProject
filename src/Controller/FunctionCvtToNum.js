@@ -1,13 +1,4 @@
-//Fonction de conversion du Romain au format Numerique
-
 function CvtToNum(rom) {
-  let result = 0;
-
-  const invalidChars = /[^IVXLCDM]/;
-  if (invalidChars.test(rom)) {
-    return 0;
-  }
-
   const listRules = [
     { value: 1000, rule: "M" },
     { value: 900, rule: "CM" },
@@ -24,23 +15,32 @@ function CvtToNum(rom) {
     { value: 1, rule: "I" },
   ];
 
-  let i = 0;
+  let result = 0;
+  let prevValue = 0;
 
-  while (i < rom.length) {
+  for (let i = 0; i < rom.length; i++) {
     let currentRule = listRules.find((rule) => rule.rule === rom[i]);
-    if (currentRule) {
-      let nextRule = listRules.find((rule) => rule.rule === rom[i + 1]);
 
-      if (nextRule && currentRule.value < nextRule.value) {
-        result += nextRule.value - currentRule.value;
-        i += 2;
-      } else {
-        result += currentRule.value;
-        i++;
-      }
-    } else {
-      return;
+    if (!currentRule) {
+      return "Erreur : Symbole romain invalide";
     }
+
+    // Si le symbole romain actuel est plus grand que le précédent, on le soustrait deux fois
+    if (prevValue < currentRule.value) {
+      // Si le symbole précédent est invalide pour être soustrait, cela signifie que la chaîne est invalide
+      if (
+        prevValue !== 0 &&
+        (currentRule.value / prevValue > 10 ||
+          (prevValue !== 1 && currentRule.value / prevValue > 5))
+      ) {
+        return "Erreur : Symbole romain invalide";
+      }
+      result += currentRule.value - 2 * prevValue;
+    } else {
+      result += currentRule.value;
+    }
+
+    prevValue = currentRule.value;
   }
 
   return result;

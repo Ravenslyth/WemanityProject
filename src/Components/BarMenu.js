@@ -1,14 +1,15 @@
 import * as React from "react";
 
+//import material library
 import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
 
+//import image et logo
 import LogoSPQR from "../Ressources/LogoSPQR.png";
 
 function BarMenu() {
+  //Affichage du ToolBar
   return (
     <AppBar position="fixed">
       <Toolbar

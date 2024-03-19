@@ -42,6 +42,7 @@ test("Test de la fonction de conversion du numérique au format romain jusqu'à 
     { value: 8, rule: "VIII" },
     { value: 9, rule: "IX" },
     { value: 10, rule: "X" },
+    { value: 49, rule: "XLIX" },
   ];
 
   testCases.forEach(({ value, rule }) => {
@@ -64,6 +65,7 @@ test("Test de la fonction de conversion du Romain au format Numérique jusqu'à 
     { value: 8, rule: "VIII" },
     { value: 9, rule: "IX" },
     { value: 10, rule: "X" },
+    { value: 49, rule: "XLIX" },
   ];
 
   testCases.forEach(({ value, rule }) => {
